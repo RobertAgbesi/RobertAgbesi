@@ -1,0 +1,28 @@
+from typing import List
+
+def bubble_sort(arr: List[int]) -> List[int]:
+    """
+    sorts a list of integers using the bubble sort algorithm.
+    Returns a new sorted list without modifying the original list.
+    """
+    sorted_arr = arr.copy()
+    n = len(sorted_arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if sorted_arr[j] > sorted_arr[j + 1]:
+                sorted_arr[j], sorted_arr[j + 1] = sorted_arr[j + 1], sorted_arr[j]
+    return sorted_arr
+    
+    # Example usage and tests
+    if ___name___ == "__main__":
+        def test_bubble_sort():
+            # Test typical unsorted list
+            arr = [64, 34, 25, 12, 22, 11, 90]
+            sorted_arr = bubble_sort(arr)
+            assert sorted_arr == sorted(arr), f"Failed on typical list: {sorted_arr}"
+            assert arr == [64, 34, 25, 12, 22, 11, 90], "original list modified"
+
+            #  Test empty list
+            arr = []
+            sorted_arr = bubble_sort(arr)
+            assert sorted_arr ==[], "Failed on empty list"
